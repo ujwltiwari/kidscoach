@@ -1,5 +1,5 @@
 import React from 'react'
-import { hover, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { Target, Users, Award, Smile } from 'lucide-react'
 
 const WhyChooseUs = () => {
@@ -46,6 +46,18 @@ const WhyChooseUs = () => {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  }
+
+  const statsContainer = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3, ease: 'easeOut', staggerChildren: 0.3 },
     },
   }
 
@@ -99,14 +111,18 @@ const WhyChooseUs = () => {
               whileHover={{
                 rotate: 2,
                 scale: 1.05,
-                ease: 'easeInOut',
-                transition: { duration: 0.5 },
+                transition: {
+                  duration: 0.5,
+                  ease: 'easeInOut',
+                },
               }}
               whileTap={{
                 rotate: 2,
                 scale: 1.05,
-                ease: 'easeInOut',
-                transition: { duration: 0.5 },
+                transition: {
+                  duration: 0.5,
+                  ease: 'easeInOut',
+                },
               }}
               className='relative group'
             >
@@ -134,6 +150,7 @@ const WhyChooseUs = () => {
         <motion.div
           initial='hidden'
           whileInView='visible'
+          variants={statsContainer}
           className='mt-20 grid grid-cols-2 md:grid-cols-4 gap-8'
         >
           {[

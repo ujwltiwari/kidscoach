@@ -90,10 +90,19 @@ const Explore = () => {
                 whileHover={{
                   y: -20,
                 }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                whileTap={{
+                  y: -20,
+                }}
+                // transition={{ duration: 0.5, ease: 'easeInOut' }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 200,
+                  damping: 20,
+                }}
+                ease={'easeInOut'}
                 key={index}
                 className='group relative'
-                style={{ perspective: '1000px' }}
+                style={{ perspective: '1000px', willChange: 'transform' }}
               >
                 <div className='bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500'>
                   <div className='relative h-48 overflow-hidden'>
