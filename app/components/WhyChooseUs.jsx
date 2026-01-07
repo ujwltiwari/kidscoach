@@ -49,6 +49,18 @@ const WhyChooseUs = () => {
     },
   }
 
+  const statsVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3, ease: 'easeOut' },
+    },
+  }
+
   return (
     <section
       id='about'
@@ -119,14 +131,19 @@ const WhyChooseUs = () => {
         </motion.div>
 
         {/* Stats Section */}
-        <div className='mt-20 grid grid-cols-2 md:grid-cols-4 gap-8'>
+        <motion.div
+          initial='hidden'
+          whileInView='visible'
+          className='mt-20 grid grid-cols-2 md:grid-cols-4 gap-8'
+        >
           {[
             { label: 'Happy Students', value: '500+' },
             { label: 'Expert Coaches', value: '50+' },
             { label: 'Programs', value: '10+' },
             { label: 'Success Rate', value: '95%' },
           ].map((stat, idx) => (
-            <div
+            <motion.div
+              variants={statsVariants}
               key={idx}
               className='text-center bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-6'
             >
@@ -134,9 +151,9 @@ const WhyChooseUs = () => {
                 {stat.value}
               </div>
               <div className='text-gray-700 font-medium'>{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
