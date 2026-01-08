@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion, scale } from 'motion/react'
 
 const OurTeam = () => {
   return (
@@ -53,9 +54,17 @@ const OurTeam = () => {
         <div className='max-w-7xl mx-auto relative z-10'>
           {/* Header */}
           <div className='text-center mb-16'>
-            <span className='inline-block px-6 py-3 bg-gradient-to-r from-purple-200 to-pink-200 text-purple-700 rounded-full mb-6'>
+            <motion.div
+              animate={{
+                rotate: [0, 360],
+                transition: {
+                  duration: 0.5,
+                },
+              }}
+              className='inline-block px-6 py-3 bg-gradient-to-r from-purple-200 to-pink-200 text-purple-700 rounded-full mb-6'
+            >
               ⭐ Meet Our Team ⭐
-            </span>
+            </motion.div>
 
             <h2 className='text-4xl md:text-5xl lg:text-6xl mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
               Our Amazing Coaches
@@ -102,8 +111,47 @@ const OurTeam = () => {
                 gradient: 'from-green-400 to-blue-500',
               },
             ].map((coach, i) => (
-              <div key={i} className='group'>
-                <div className='bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500'>
+              <motion.div
+                whileHover={{
+                  scale: 1.08,
+                  transition: {
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                  },
+                }}
+                key={i}
+                className='group'
+              >
+                <div className='relative z-1 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500'>
+                  {/* rotating star */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 3,
+                      ease: 'linear',
+                    }}
+                    className='z-10 absolute right-4 top-3 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg'
+                  >
+                    <div>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='24'
+                        height='24'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='currentColor'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        className='lucide lucide-star w-6 h-6 text-yellow-500 fill-yellow-500'
+                        aria-hidden='true'
+                      >
+                        <path d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z'></path>
+                      </svg>
+                    </div>
+                  </motion.div>
                   <div className='relative h-64'>
                     <img
                       src={coach.img}
@@ -130,7 +178,7 @@ const OurTeam = () => {
                     <p className='text-gray-600 italic mt-2'>“{coach.quote}”</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
