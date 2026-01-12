@@ -1,4 +1,28 @@
+import { Star } from 'lucide-react'
 import React from 'react'
+import { motion } from 'motion/react'
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+}
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -15,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
 
 const Footer = () => {
   return (
@@ -135,10 +159,17 @@ const Footer = () => {
           <div className='grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12'>
             <div className='lg:col-span-2'>
               <div className='flex items-center gap-2 mb-4'>
-                <div className='w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center'>
-                  ⭐
+                <div
+                  className='gap-2 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center'
+                  style={{
+                    animation: 'spin 3s linear infinite',
+                  }}
+                >
+                  <Star className='w-7 h-7 text-white fill-white' />
                 </div>
-                <span className='text-3xl'>KidsCoach</span>
+                <span className='text-3xl font-semibold text-white bg-clip-text'>
+                  KidsCoach
+                </span>
               </div>
 
               <p className='text-purple-200 mb-6 max-w-sm'>
@@ -193,18 +224,27 @@ const Footer = () => {
             ].map((col, i) => (
               <div key={i}>
                 <h4 className='text-xl mb-4'>{col.title}</h4>
-                <ul className='space-y-2'>
+                <motion.ul
+                  variants={containerVariants}
+                  initial='hidden'
+                  whileInView='visible'
+                  className='space-y-2'
+                >
                   {col.links.map((l, idx) => (
-                    <li key={idx}>
+                    <motion.li
+                      variants={itemVariants}
+                      key={idx}
+                      className='hover:text-yellow-500 hover:translate-x-2 transition-transform duration-300'
+                    >
                       <a
                         href='#'
                         className='text-purple-200 hover:text-yellow-400 transition-colors inline-block'
                       >
                         {l}
                       </a>
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </div>
             ))}
           </div>
