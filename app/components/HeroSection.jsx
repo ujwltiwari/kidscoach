@@ -9,7 +9,7 @@ const iconsAnimation = {
   transition: {
     duration: 4,
     repeat: Infinity,
-    ease: 'linear',
+    ease: 'easeInOut',
   },
 }
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
             scale: [1, 1.2, 1],
             y: [0, -40, 0],
           }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
           className='absolute left-[calc(50%-40px)] bg-[#ECDFFC] w-[120px] h-[300px] rounded-full -z-10'
         />
         {/* Content wrapper or individual z-10 on each */}
@@ -55,10 +55,19 @@ const HeroSection = () => {
 
       {/* Right Image Column */}
       <motion.div
+        initial={{ opacity: 0, rotate: -5, y: -10 }}
         animate={{
           y: [0, -20, 0],
+          opacity: 1,
+          rotate: 0,
         }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+        transition={{
+          // one-time animation for opacity + rotate
+          opacity: { duration: 0.6, ease: 'easeInOut' },
+          rotate: { duration: 0.6, ease: 'easeInOut' },
+
+          y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+        }}
         className='w-1/2 justify-self-end'
       >
         <div className='relative' style={{ opacity: 1, transform: 'none' }}>
@@ -192,7 +201,7 @@ const HeroSection = () => {
             animate={{
               y: [0, -10, 0],
             }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className='absolute bottom-8 -left-10 transform -translate-x-1/2'
             style={{ opacity: 1 }}
           >

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { motion } from 'motion/react'
 const Testimonials = () => {
   return (
     <div>
@@ -22,9 +22,13 @@ const Testimonials = () => {
         <div className='max-w-7xl mx-auto relative z-10'>
           {/* Header */}
           <div className='text-center mb-16'>
-            <span className='inline-block px-6 py-3 bg-gradient-to-r from-yellow-200 to-orange-200 text-orange-700 rounded-full mb-6'>
+            <motion.span
+              animate={{ scale: [-1, 1], opacity: [0, 1] }}
+              transition={{ duration: 0.8 }}
+              className='inline-block px-6 py-3 bg-gradient-to-r from-yellow-200 to-orange-200 text-orange-700 rounded-full mb-6'
+            >
               💬 What Parents Say 💬
-            </span>
+            </motion.span>
 
             <h2 className='text-4xl md:text-5xl lg:text-6xl mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
               Happy Parents, Happy Kids!
@@ -68,7 +72,17 @@ const Testimonials = () => {
                 gradient: 'from-green-400 to-green-600',
               },
             ].map((t, i) => (
-              <div key={i} className='group'>
+              <motion.div
+                whileHover={{
+                  y: -20,
+                  transition: {
+                    duration: 1,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  },
+                }}
+                key={i}
+                className='group'
+              >
                 <div className='bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-full'>
                   <div
                     className={`absolute top-6 right-6 w-16 h-16 rounded-full bg-gradient-to-br ${t.gradient} opacity-10 flex items-center justify-center`}
@@ -123,7 +137,7 @@ const Testimonials = () => {
                     className={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
                   />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 

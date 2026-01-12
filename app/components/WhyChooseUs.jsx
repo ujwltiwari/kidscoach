@@ -41,10 +41,11 @@ const WhyChooseUs = () => {
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, scale: 0.7 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: { duration: 0.6, ease: 'easeOut' },
     },
   }
@@ -74,7 +75,13 @@ const WhyChooseUs = () => {
   }
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 1,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
       id='about'
       className='py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden'
     >
@@ -172,7 +179,7 @@ const WhyChooseUs = () => {
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, scale } from 'motion/react'
+import { motion } from 'motion/react'
 
 const OurTeam = () => {
   return (
@@ -130,7 +130,7 @@ const OurTeam = () => {
                     transition={{
                       repeat: Infinity,
                       duration: 3,
-                      ease: 'linear',
+                      ease: 'easeInOut',
                     }}
                     className='z-10 absolute right-4 top-3 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg'
                   >
@@ -183,10 +183,16 @@ const OurTeam = () => {
           </div>
 
           {/* CTA */}
-          <div className='text-center mt-16'>
-            <button className='px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg'>
+          <div className='text-center mt-16 group relative'>
+            <motion.button
+              whileHover={{
+                scale: 1.08,
+                boxShadow: '0 20px 40px -10px rgba(168, 85, 247, 0.4)', // bottom glow
+              }}
+              className='px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg transition-all duration-300'
+            >
               Meet All Our Coaches →
-            </button>
+            </motion.button>
           </div>
         </div>
       </section>
