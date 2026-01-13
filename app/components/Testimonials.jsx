@@ -40,8 +40,8 @@ const Testimonials = () => {
             </p>
           </div>
 
-          {/* Desktop testimonials */}
-          <div className='hidden md:grid md:grid-cols-2 gap-8 mb-8'>
+          {/* Testimonials Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-8'>
             {[
               {
                 text: "KidsCoach has been amazing! Sophie's confidence in math has skyrocketed, and she actually looks forward to her sessions.",
@@ -74,16 +74,20 @@ const Testimonials = () => {
             ].map((t, i) => (
               <motion.div
                 whileHover={{
-                  y: -20,
+                  y: -10,
                   transition: {
-                    duration: 1,
-                    ease: [0.25, 0.1, 0.25, 1],
+                    duration: 0.3,
+                    ease: 'easeOut',
                   },
                 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
                 key={i}
                 className='group'
               >
-                <div className='bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-full'>
+                <div className='bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden h-full'>
                   <div
                     className={`absolute top-6 right-6 w-16 h-16 rounded-full bg-gradient-to-br ${t.gradient} opacity-10 flex items-center justify-center`}
                   >
@@ -128,7 +132,7 @@ const Testimonials = () => {
                       className='w-14 h-14 rounded-full object-cover border-2 border-purple-200'
                     />
                     <div>
-                      <div className='text-gray-900'>{t.name}</div>
+                      <div className='text-gray-900 font-semibold'>{t.name}</div>
                       <div className='text-sm text-gray-600'>{t.sub}</div>
                     </div>
                   </div>
@@ -139,26 +143,6 @@ const Testimonials = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          {/* Mobile single testimonial */}
-          <div className='md:hidden bg-white rounded-3xl p-8 shadow-lg'>
-            <p className='text-gray-700 italic mb-6'>
-              “KidsCoach has been amazing! Sophie's confidence in math has
-              skyrocketed, and she actually looks forward to her sessions.”
-            </p>
-
-            <div className='flex items-center gap-4'>
-              <img
-                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80'
-                alt='Emma Wilson'
-                className='w-14 h-14 rounded-full object-cover border-2 border-purple-200'
-              />
-              <div>
-                <div className='text-gray-900'>Emma Wilson</div>
-                <div className='text-sm text-gray-600'>Parent of Sophie, 8</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

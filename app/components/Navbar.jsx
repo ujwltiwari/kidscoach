@@ -87,22 +87,31 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Dropdown (Optional logic) */}
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className='md:hidden bg-white border-t border-gray-100 p-4 space-y-4'>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className='block text-gray-700 hover:text-purple-600'
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-          <button className='w-full px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full'>
-            Get Started
-          </button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className='md:hidden bg-white border-t border-gray-100 overflow-hidden'
+        >
+          <div className='p-4 space-y-4 flex flex-col'>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className='block text-gray-700 hover:text-purple-600 font-medium py-2'
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <button className='w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-medium shadow-md active:scale-95 transition-transform'>
+              Get Started
+            </button>
+          </div>
+        </motion.div>
       )}
     </nav>
   )

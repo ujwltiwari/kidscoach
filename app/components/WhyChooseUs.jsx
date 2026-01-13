@@ -133,7 +133,7 @@ const WhyChooseUs = () => {
               }}
               className='relative group'
             >
-              <div className='bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-gray-50'>
+              <div className='bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full border border-gray-50'>
                 <div
                   className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 shadow-lg`}
                 >

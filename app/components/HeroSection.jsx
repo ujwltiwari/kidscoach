@@ -15,9 +15,9 @@ const iconsAnimation = {
 
 const HeroSection = () => {
   return (
-    <div className='flex items-center px-24 gap-12'>
+    <div className='flex flex-col md:flex-row items-center px-6 md:px-24 gap-12 pt-32 md:pt-0'>
       {/* Left Content Column */}
-      <div className='w-1/2 relative'>
+      <div className='w-full md:w-1/2 relative text-center md:text-left'>
         {/* Background blob - now behind everything */}
         <motion.div
           animate={{
@@ -25,7 +25,7 @@ const HeroSection = () => {
             y: [0, -40, 0],
           }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className='absolute left-[calc(50%-40px)] bg-[#ECDFFC] w-[120px] h-[300px] rounded-full -z-10'
+          className='absolute left-[calc(50%-60px)] md:left-[calc(50%-40px)] bg-[#ECDFFC] w-[120px] h-[300px] rounded-full -z-10'
         />
         {/* Content wrapper or individual z-10 on each */}
         <div className='relative z-10'>
@@ -34,10 +34,10 @@ const HeroSection = () => {
           <span className='inline-block px-4 py-2 bg-gradient-to-r from-yellow-200 to-orange-200 text-orange-700 rounded-full mb-4'>
             ✨ Where Learning Meets Fun! ✨
           </span>
-          <h1 className='text-5xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent'>
+          <h1 className='text-4xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent leading-tight'>
             Unlock Your Child's Potential!
           </h1>
-          <p className='text-xl text-gray-700 mb-8 max-w-xl mx-auto md:mx-0'>
+          <p className='text-lg md:text-xl text-gray-700 mb-8 max-w-xl mx-auto md:mx-0'>
             Expert coaching programs designed to help kids excel academically,
             build confidence, and discover their passions through engaging and
             interactive learning.
@@ -68,7 +68,7 @@ const HeroSection = () => {
 
           y: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
         }}
-        className='w-1/2 justify-self-end'
+        className='w-full md:w-1/2 justify-self-end mt-8 md:mt-0'
       >
         <div className='relative' style={{ opacity: 1, transform: 'none' }}>
           <div
@@ -87,7 +87,7 @@ const HeroSection = () => {
           <motion.div
             animate={iconsAnimation.animate}
             transition={iconsAnimation.transition}
-            className='absolute'
+            className='absolute hidden md:block'
             style={{
               top: '20%',
               right: '-10%',
@@ -125,7 +125,7 @@ const HeroSection = () => {
           <motion.div
             animate={iconsAnimation.animate}
             transition={iconsAnimation.transition}
-            className='absolute'
+            className='absolute hidden md:block'
             style={{
               top: '45%',
               right: 'auto',
@@ -162,7 +162,7 @@ const HeroSection = () => {
           <motion.div
             animate={iconsAnimation.animate}
             transition={iconsAnimation.transition}
-            className='absolute'
+            className='absolute hidden md:block'
             style={{
               top: '70%',
               right: '-10%',
@@ -202,7 +202,7 @@ const HeroSection = () => {
               y: [0, -10, 0],
             }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className='absolute bottom-8 -left-10 transform -translate-x-1/2'
+            className='absolute bottom-8 -left-10 transform -translate-x-1/2 hidden md:block'
             style={{ opacity: 1 }}
           >
             <div

@@ -1,5 +1,5 @@
 import React from 'react'
-import {motion} from "motion/react"
+import { motion } from "motion/react"
 const Contact = () => {
   return (
     <div>
@@ -100,7 +100,7 @@ const Contact = () => {
           <div className='grid lg:grid-cols-2 gap-12'>
             {/* Form */}
             <div>
-              <div className='bg-white rounded-3xl p-8 shadow-xl'>
+              <div className='bg-white rounded-3xl p-6 md:p-8 shadow-xl'>
                 <h3 className='text-2xl text-gray-900 mb-6'>
                   Send us a message
                 </h3>

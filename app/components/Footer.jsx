@@ -297,13 +297,13 @@ const Footer = () => {
                 </p>
               </div>
 
-              <div className='flex gap-3'>
+              <div className='flex flex-col sm:flex-row gap-3'>
                 <input
                   type='email'
                   placeholder='Enter your email'
-                  className='flex-1 px-6 py-3 rounded-full bg-white/90 text-gray-900 outline-none'
+                  className='flex-1 px-6 py-3 rounded-full bg-white/90 text-gray-900 outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow'
                 />
-                <button className='px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full'>
+                <button className='px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300'>
                   Subscribe
                 </button>
               </div>
