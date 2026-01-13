@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {motion} from "motion/react"
 const Contact = () => {
   return (
     <div>
@@ -235,12 +235,20 @@ const Contact = () => {
                   ),
                 },
               ].map((item, i) => (
-                <div
+                <motion.div
+                  // whileHover={{ x: 15 }}
                   key={i}
                   className='bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-6'
                 >
-                  <div
+                  <motion.div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}
+                    whileHover={{
+                      rotate: 360
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: 'linear',
+                    }}
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -254,13 +262,13 @@ const Contact = () => {
                     >
                       {item.icon}
                     </svg>
-                  </div>
+                  </motion.div>
 
                   <div>
                     <h4 className='text-gray-900 mb-1'>{item.title}</h4>
                     <p className='text-gray-600'>{item.value}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -1,6 +1,10 @@
 import { Star } from 'lucide-react'
 import React from 'react'
 import { motion } from 'motion/react'
+import { Facebook } from 'lucide-react'
+import { Instagram } from 'lucide-react'
+import { Twitter } from 'lucide-react'
+import { Youtube } from 'lucide-react'
 
 const containerVariants = {
   hidden: {
@@ -8,7 +12,7 @@ const containerVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.1 },
   },
 }
 
@@ -20,7 +24,7 @@ const itemVariants = {
   visible: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    // transition: { duration: 0.6, ease: 'easeOut' },
   },
 }
 
@@ -172,22 +176,51 @@ const Footer = () => {
                 </span>
               </div>
 
-              <p className='text-purple-200 mb-6 max-w-sm'>
+              <motion.p
+                className="text-purple-200 mb-6 max-w-sm"
+                initial={{ opacity: 1, y: 40 }}          // starts invisible + pushed down
+                whileInView={{ opacity: 1, y: 0 }}       // ends visible at normal position
+                transition={{
+                  duration: 0.9,                         // smooth & noticeable but not slow
+                  ease: "easeOut"                        // natural deceleration
+                }}
+              >
                 Empowering children to reach their full potential through
                 engaging, personalized coaching programs.
-              </p>
+              </motion.p>
 
-              <div className='flex gap-3'>
-                {['facebook', 'instagram', 'twitter', 'youtube'].map((s, i) => (
-                  <a
-                    key={i}
-                    href='#'
-                    className='w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all'
-                  >
-                    {s}
-                  </a>
-                ))}
-              </div>
+              <motion.div className="flex gap-3"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+                }}
+                initial="hidden"
+                whileInView="visible"
+              >
+                {
+                  [
+                    { Icon: Facebook, name: 'facebook' },
+                    { Icon: Instagram, name: 'instagram' },
+                    { Icon: Twitter, name: 'twitter' },
+                    { Icon: Youtube, name: 'youtube' },
+                  ].map(({ Icon, name }, i) => (
+                    <motion.a
+                      variants={{
+                        hidden: { opacity: 0, scale: 0.2, y: 12 },
+                        visible: { opacity: 1, scale: 1, y: 0 },
+                      }}
+                      key={i}
+                      href={`https://${name}.com/yourusername`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={name}
+                      className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
+                    >
+                      <Icon size={20} strokeWidth={2} />
+                    </motion.a>
+                  ))
+                }
+              </motion.div>
             </div>
 
             {[
@@ -250,7 +283,11 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className='bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12'>
+          <motion.div
+            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className='bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12'>
             <div className='grid md:grid-cols-2 gap-8 items-center'>
               <div>
                 <h4 className='text-2xl mb-2'>Join Our Newsletter! 📬</h4>
@@ -271,10 +308,14 @@ const Footer = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Bottom */}
-          <div className='pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4'>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className='pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4'>
             <p className='text-purple-200 text-center md:text-left'>
               © 2025 KidsCoach. All rights reserved. Made with ❤️ for kids
               everywhere.
@@ -291,10 +332,10 @@ const Footer = () => {
                 Cookies
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   )
 }
 

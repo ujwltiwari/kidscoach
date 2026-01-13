@@ -83,7 +83,7 @@ const OurTeam = () => {
                 role: 'Math & Science Coach',
                 exp: '8 years',
                 quote: 'Making numbers fun!',
-                img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2',
+                img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
                 gradient: 'from-blue-400 to-purple-500',
               },
               {
@@ -91,7 +91,7 @@ const OurTeam = () => {
                 role: 'Creative Arts Coach',
                 exp: '6 years',
                 quote: 'Unleashing creativity',
-                img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a',
+                img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80',
                 gradient: 'from-pink-400 to-orange-500',
               },
               {
@@ -99,7 +99,7 @@ const OurTeam = () => {
                 role: 'Reading & Writing Coach',
                 exp: '10 years',
                 quote: 'Building literacy skills',
-                img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956',
+                img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
                 gradient: 'from-purple-400 to-pink-500',
               },
               {
@@ -107,7 +107,7 @@ const OurTeam = () => {
                 role: 'Coding & Technology',
                 exp: '7 years',
                 quote: 'Future tech leaders',
-                img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e',
+                img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80',
                 gradient: 'from-green-400 to-blue-500',
               },
             ].map((coach, i) => (

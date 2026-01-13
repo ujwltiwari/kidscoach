@@ -47,28 +47,28 @@ const Testimonials = () => {
                 text: "KidsCoach has been amazing! Sophie's confidence in math has skyrocketed, and she actually looks forward to her sessions.",
                 name: 'Emma Wilson',
                 sub: 'Parent of Sophie, 8',
-                img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+                img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
                 gradient: 'from-pink-400 to-pink-600',
               },
               {
                 text: "My son struggled with reading, but after just 3 months with KidsCoach, he's reading above grade level!",
                 name: 'James Thompson',
                 sub: 'Parent of Lucas, 10',
-                img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d',
+                img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
                 gradient: 'from-blue-400 to-blue-600',
               },
               {
                 text: "The creative arts program unleashed Mia's artistic talents. Her creativity has flourished!",
                 name: 'Lisa Rodriguez',
                 sub: 'Parent of Mia, 7',
-                img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+                img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80',
                 gradient: 'from-purple-400 to-purple-600',
               },
               {
                 text: 'The coding program is excellent! Ethan has built his own games and apps.',
                 name: 'Robert Chang',
                 sub: 'Parent of Ethan, 12',
-                img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
+                img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
                 gradient: 'from-green-400 to-green-600',
               },
             ].map((t, i) => (
@@ -150,7 +150,7 @@ const Testimonials = () => {
 
             <div className='flex items-center gap-4'>
               <img
-                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330'
+                src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80'
                 alt='Emma Wilson'
                 className='w-14 h-14 rounded-full object-cover border-2 border-purple-200'
               />

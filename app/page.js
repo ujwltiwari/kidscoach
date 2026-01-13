@@ -8,8 +8,8 @@ import Navbar from './components/Navbar'
 import Explore from './components/Explore'
 import OurTeam from './components/OurTeam'
 import Testimonials from './components/Testimonials'
-import { Contact } from 'lucide-react'
 import Footer from './components/Footer'
+import Contact from './components/Contact'
 const Page = () => {
   return (
     <>
